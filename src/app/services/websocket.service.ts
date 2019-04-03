@@ -6,5 +6,21 @@ import { Socket } from 'ngx-socket-io';
 })
 export class WebsocketService {
 
-  constructor(private socket: Socket) { }
+  public socketStatus = false;
+
+  constructor(private socket: Socket) {
+    this.checkStatus();
+  }
+
+  checkStatus() {
+    this.socket.on('connect', () => {
+      console.log('conectado al servidor');
+      this.socketStatus = true;
+    });
+
+    this.socket.on('disconnect', () => {
+      console.log('desconectado al servidor');
+      this.socketStatus = false;
+    });
+  }
 }
