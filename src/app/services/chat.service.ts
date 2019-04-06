@@ -19,4 +19,8 @@ export class ChatService {
   getMensajes() {
     return this.wsService.listen('mensaje-nuevo');
   }
+
+  getMensajesPrivados() {
+    return this.wsService.listen('mensaje-privado');
+  }
 }
