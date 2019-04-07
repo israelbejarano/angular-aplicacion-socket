@@ -58,7 +58,7 @@ export class WebsocketService {
     localStorage.removeItem('usuario');
     const payload = {
       nombre: 'sin-nombre'
-    }
+    };
     this.emit('configurar-usuario', payload, () => {});
     this.router.navigateByUrl('/');
   }
